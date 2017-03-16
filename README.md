@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+to consult: http://tech.eshaiju.in/blog/2014/03/05/fullcalendar-integration-with-ruby-on/
