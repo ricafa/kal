@@ -6,6 +6,9 @@ class EventsController < ApplicationController
   def index
     if params[:filter].present?
       @events = Event.where(id: params[:filter])
+      respond_to do |format|
+        format.json { render json: @events }
+      end
     else
       @events = Event.all
     end

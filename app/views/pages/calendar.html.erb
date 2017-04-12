@@ -29,3 +29,21 @@
 		});
 -->
 <div id="calendar"></div>
+<script>
+$(document).ready(function() {
+  $('#eventnumber').change(function(){
+    //alert('yay');
+    $.ajax({
+      url: "/events?filter="+$('#eventnumber').val()+".json",
+      type: "GET",
+      datatype: "json",
+      //data: {  },
+      success:function(result)
+      {
+        $('#calendar').fullCalendar({events: result});
+        console.log(result);
+        }
+      });
+  });
+});
+</script>
