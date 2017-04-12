@@ -1,3 +1,31 @@
 <h1>Kalendar</h1>
+<p id="here"></p>
+<p>Evento:
+<select id="eventnumber">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+</select>
+</p>
 
+<script>
+    $(document).ready(function() {
+      $('#eventnumber').on('change', function() {
+        $('#here').val('vish');
+        $('#calendar').fullCalendar({
+          eventSources:[{ url: '/events?filter='+$("#eventnumber").val()+'.json'}]
+        });
+      });
+    });
+</script>
+<!--
+// when the selected option changes, dynamically change the calendar option
+		$('#locale-selector').on('change', function() {
+			if (this.value) {
+				$('#calendar').fullCalendar('option', 'locale', this.value);
+			}
+		});
+-->
 <div id="calendar"></div>

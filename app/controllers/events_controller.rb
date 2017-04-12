@@ -4,7 +4,11 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    if params[:filter].present?
+      @events = Event.where(id: params[:filter])
+    else
+      @events = Event.all
+    end
   end
 
   # GET /events/1
