@@ -10,15 +10,16 @@
 </select>
 </p>
 
-<script>
+<script>/*/
     $(document).ready(function() {
       $('#eventnumber').on('change', function() {
         $('#here').val('vish');
         $('#calendar').fullCalendar({
           eventSources:[{ url: '/events?filter='+$("#eventnumber").val()+'.json'}]
         });
+        $('#calendar').fullCalendar( 'rerenderEvents' );
       });
-    });
+    });/*/
 </script>
 <!--
 // when the selected option changes, dynamically change the calendar option
@@ -40,8 +41,9 @@ $(document).ready(function() {
       //data: {  },
       success:function(result)
       {
-        $('#calendar').fullCalendar({events: result});
+        //$('#calendar').fullCalendar({events: result});
         console.log(result);
+        $('#calendar').fullCalendar( 'renderEvents', result  );
         }
       });
   });
